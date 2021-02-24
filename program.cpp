@@ -117,6 +117,10 @@ plant *plant_input(ifstream &ifst)
         plt_new = (plant*)bush_input(ifst);
         plt_new->key = BUSH;
         break;
+    case 3:
+        plt_new = (plant*)flower_input(ifst);
+        plt_new->key = FLOWER;
+        break;
 
     default:
         return 0;
@@ -147,6 +151,11 @@ bool plant_output(plant *p, ofstream &ofst)
     else if(p->key == BUSH)
     {
         bush_output((bush*)p, ofst);
+        return true;
+    }
+    else if(p->key == FLOWER)
+    {
+        flower_output((flower*)p, ofst);
         return true;
     }
     else
@@ -190,6 +199,22 @@ void output_list(struct container *listToOutput, ofstream &ofst)
             cout << "Node is broken!" << endl;
         }
     }
+}
+
+flower *flower_input(ifstream &ifst)
+{
+    flower *f = new flower;
+    int type = 0;
+    ifst >> f->name >> type;
+    f->flower_kind = kind(type);
+    return f;
+}
+
+void flower_output(flower *f, ofstream &ofst)
+{
+    cout << f->flower_kind + 1 << endl;
+        ofst << "It is flower named: " << f->name
+             << " and it's kind: " << f->flower_kind + 1 << endl;
 }
 
 } // end type_plants namespace
