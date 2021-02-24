@@ -62,6 +62,7 @@ namespace type_plants {
     int get_consonant(struct tree *t);
     int get_consonant(struct bush *b);
 
+    int get_consonant(plant *p);
     bool compare(plant *plt1, plant *plt2);
     struct node *get_node(struct node *head, int index);
     void swap(struct node *head, int first, int second);
