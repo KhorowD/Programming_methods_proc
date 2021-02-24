@@ -127,13 +127,15 @@ plant *plant_input(ifstream &ifst)
 void tree_output(struct tree *t, ofstream &ofst)
 {
     ofst << "It is tree named: " << t->name
-         << " and it's age: " << t->age << endl;
+         << " and it's age: " << t->age
+         << ", Number of consonants: " << get_consonant(t) << endl;
 }
 
 void bush_output(struct bush *b, ofstream &ofst)
 {
     ofst << "It is bush named: " << b->name
-         << " and it's month flowering: " << b->m + 1<< endl;
+         << " and it's month flowering: " << b->m + 1
+         << ", Number of consonants: " << get_consonant(b) << endl;
 }
 
 bool plant_output(plant *p, ofstream &ofst)
@@ -190,6 +192,44 @@ void output_list(struct container *listToOutput, ofstream &ofst)
             cout << "Node is broken!" << endl;
         }
     }
+}
+
+int get_consonant(tree *t)
+{
+    int count = 0;
+        string vowels = "aeiouy";
+
+        for(unsigned int i = 0; i < vowels.size(); i++)
+        {
+            for(unsigned int j = 0; j < t->name.size(); j++)
+            {
+                if(vowels[i] == t->name[j])
+                {
+                    count++;
+                }
+            }
+        }
+
+        return (t->name.size() - count); //возвращаем число (длина - гласные)
+}
+
+int get_consonant(bush *b)
+{
+    int count = 0;
+    string vowels = "aeiouy";
+
+    for(unsigned int i = 0; i < vowels.size(); i++)
+    {
+        for(unsigned int j = 0; j < b->name.size(); j++)
+        {
+            if(vowels[i] == b->name[j])
+            {
+                count++;
+            }
+        }
+    }
+
+    return (b->name.size() - count); //возвращаем число (длина - гласные)
 }
 
 } // end type_plants namespace
