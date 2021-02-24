@@ -59,6 +59,14 @@ namespace type_plants {
     void tree_output(struct tree *t, ofstream &ofst);
     void bush_output(struct bush *b, ofstream &ofst);
 
+    int get_consonant(struct tree *t);
+    int get_consonant(struct bush *b);
+
+    bool compare(plant *plt1, plant *plt2);
+    struct node *get_node(struct node *head, int index);
+    void swap(struct node *head, int first, int second);
+    void sort(int size,struct node *head);
+
     plant* plant_input(ifstream &ifst);
     bool plant_output(plant *p, ofstream &ofst);
 

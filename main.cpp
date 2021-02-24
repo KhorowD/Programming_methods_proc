@@ -33,6 +33,7 @@ int main(int argc, char const *argv[])
     init_list(c);
     fill_list(c, ifst);
     cout << "Filled container. " << endl;
+    sort(c->size, c->head);
     output_list(c, ofst);
     clear_list(c);
     cout << "Empty container. " << endl;
