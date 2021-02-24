@@ -232,4 +232,18 @@ int get_consonant(bush *b)
     return (b->name.size() - count); //возвращаем число (длина - гласные)
 }
 
+int get_consonant(plant *p)
+{
+    if (p->key == TREE)
+    {
+        return get_consonant((tree*)p);
+    }
+    if (p->key == BUSH)
+    {
+        return get_consonant((bush*)p);
+    }
+
+    return -1;
+}
+
 } // end type_plants namespace

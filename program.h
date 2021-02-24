@@ -62,6 +62,7 @@ namespace type_plants {
     int get_consonant(struct tree *t);
     int get_consonant(struct bush *b);
 
+    int get_consonant(plant *p);
     plant* plant_input(ifstream &ifst);
     bool plant_output(plant *p, ofstream &ofst);
 
