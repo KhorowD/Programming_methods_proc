@@ -192,4 +192,32 @@ void output_list(struct container *listToOutput, ofstream &ofst)
     }
 }
 
+void output_tree(container *listToOutput, ofstream &ofst)
+{
+    node *currentNode;
+    if(listToOutput->size == 0)
+    {
+        cout << "LIST IS EMPTY!" << endl;
+        return;
+    }
+
+    ofst << "Only trees." << endl;
+    for(int i = 0; i < listToOutput->size; i++)
+    {
+        currentNode = listToOutput->head;
+        for(int j = 0; j < i; j++)
+        {
+            currentNode = currentNode->next;
+        }
+        if(currentNode->plt->key == TREE)
+        {
+            if (!output_node(listToOutput->head, i,ofst))
+            {
+                cout << "Node is broken!" << endl;
+            }
+        }
+    }
+}
+
+
 } // end type_plants namespace
