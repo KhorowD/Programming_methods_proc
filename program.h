@@ -9,11 +9,15 @@ namespace type_plants {
 
     // Значение месяца цветения кустарников
     enum month {JAN, FEB, MAR, APR, MAY, JUNE, JULY, AUG, SEPT, OCT, NOV, DEC};
+
+    enum location {TUNDRA, DESERT, STEPPE, TAIGA, MIXED_FOREST, MOUNTAINS};
+
     //  Деревья
     struct tree
     {
         type key;
         string name;    //  имя
+        location location_name; //место произрастания
         long age;       //  возраст
     };
 
@@ -22,6 +26,7 @@ namespace type_plants {
     {
         type key;
         string name;    //  имя
+        location location_name; //место произрастания
         month m;        //  Месяц цветения
     };
 

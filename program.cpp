@@ -43,7 +43,9 @@ tree* tree_input(ifstream &ifst)
 {
     tree *t = new tree;
     t->name = "";
-    ifst >> t->name >> t->age;
+    int place = 0;
+    ifst >> t->name >> t->age >> place;
+    t->location_name = location(place);
     return t;
 }
 
@@ -51,8 +53,10 @@ bush *bush_input(ifstream &ifst)
 {
     bush *b = new bush;
     int mnth;
-    ifst >> b->name >> mnth;
+    int place = 0;
+    ifst >> b->name >> mnth >> place;
     b->m = month(mnth);
+    b->location_name = location(place);
     return b;
 }
 
@@ -127,13 +131,15 @@ plant *plant_input(ifstream &ifst)
 void tree_output(struct tree *t, ofstream &ofst)
 {
     ofst << "It is tree named: " << t->name
-         << " and it's age: " << t->age << endl;
+         << " and it's age: " << t->age
+         << ", and location name: "<< t->location_name + 1 << endl;
 }
 
 void bush_output(struct bush *b, ofstream &ofst)
 {
     ofst << "It is bush named: " << b->name
-         << " and it's month flowering: " << b->m + 1<< endl;
+         << " and it's month flowering: " << b->m + 1
+         << ", and location name: "<< b->location_name + 1 << endl;
 }
 
 bool plant_output(plant *p, ofstream &ofst)
