@@ -29,6 +29,7 @@ namespace type_plants {
     struct plant
     {
         type key;
+        string name;
     };
 
     struct node
@@ -59,8 +60,8 @@ namespace type_plants {
     void tree_output(struct tree *t, ofstream &ofst);
     void bush_output(struct bush *b, ofstream &ofst);
 
-    int get_consonant(struct tree *t);
-    int get_consonant(struct bush *b);
+//    int get_consonant(struct tree *t);
+//    int get_consonant(struct bush *b);
 
     int get_consonant(plant *p);
     plant* plant_input(ifstream &ifst);

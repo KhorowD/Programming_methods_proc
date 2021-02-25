@@ -127,15 +127,15 @@ plant *plant_input(ifstream &ifst)
 void tree_output(struct tree *t, ofstream &ofst)
 {
     ofst << "It is tree named: " << t->name
-         << " and it's age: " << t->age
-         << ", Number of consonants: " << get_consonant(t) << endl;
+         << " and it's age: " << t->age;/*
+         << ", Number of consonants: " << get_consonant(t) << endl;*/
 }
 
 void bush_output(struct bush *b, ofstream &ofst)
 {
     ofst << "It is bush named: " << b->name
-         << " and it's month flowering: " << b->m + 1
-         << ", Number of consonants: " << get_consonant(b) << endl;
+         << " and it's month flowering: " << b->m + 1;/*
+         << ", Number of consonants: " << get_consonant(b) << endl;*/
 }
 
 bool plant_output(plant *p, ofstream &ofst)
@@ -144,11 +144,13 @@ bool plant_output(plant *p, ofstream &ofst)
     if(p->key == TREE)
     {
         tree_output((tree*)p, ofst);
+        ofst << ", Number of consonants: " << get_consonant(p) << endl;
         return true;
     }
     else if(p->key == BUSH)
     {
         bush_output((bush*)p, ofst);
+        ofst << ", Number of consonants: " << get_consonant(p) << endl;
         return true;
     }
     else
@@ -194,56 +196,61 @@ void output_list(struct container *listToOutput, ofstream &ofst)
     }
 }
 
-int get_consonant(tree *t)
-{
-    int count = 0;
-        string vowels = "aeiouy";
+//int get_consonant(tree *t)
+//{
+//    int count = 0;
+//        string vowels = "aeiouy";
 
-        for(unsigned int i = 0; i < vowels.size(); i++)
-        {
-            for(unsigned int j = 0; j < t->name.size(); j++)
-            {
-                if(vowels[i] == t->name[j])
-                {
-                    count++;
-                }
-            }
-        }
+//        for(unsigned int i = 0; i < vowels.size(); i++)
+//        {
+//            for(unsigned int j = 0; j < t->name.size(); j++)
+//            {
+//                if(vowels[i] == t->name[j])
+//                {
+//                    count++;
+//                }
+//            }
+//        }
 
-        return (t->name.size() - count); //возвращаем число (длина - гласные)
-}
+//        return (t->name.size() - count); //возвращаем число (длина - гласные)
+//}
 
-int get_consonant(bush *b)
+//int get_consonant(bush *b)
+//{
+//    int count = 0;
+//    string vowels = "aeiouy";
+
+//    for(unsigned int i = 0; i < vowels.size(); i++)
+//    {
+//        for(unsigned int j = 0; j < b->name.size(); j++)
+//        {
+//            if(vowels[i] == b->name[j])
+//            {
+//                count++;
+//            }
+//        }
+//    }
+
+//    return (b->name.size() - count); //возвращаем число (длина - гласные)
+//}
+
+int get_consonant(plant *p)
 {
     int count = 0;
     string vowels = "aeiouy";
 
     for(unsigned int i = 0; i < vowels.size(); i++)
     {
-        for(unsigned int j = 0; j < b->name.size(); j++)
+        for(unsigned int j = 0; j < p->name.size(); j++)
         {
-            if(vowels[i] == b->name[j])
+            if(vowels[i] == p->name[j])
             {
                 count++;
             }
         }
     }
 
-    return (b->name.size() - count); //возвращаем число (длина - гласные)
-}
-
-int get_consonant(plant *p)
-{
-    if (p->key == TREE)
-    {
-        return get_consonant((tree*)p);
-    }
-    if (p->key == BUSH)
-    {
-        return get_consonant((bush*)p);
-    }
-
-    return -1;
+    return (p->name.size() - count); //возвращаем число (длина - гласные)
 }
 
 } // end type_plants namespace
