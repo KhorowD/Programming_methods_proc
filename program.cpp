@@ -196,44 +196,6 @@ void output_list(struct container *listToOutput, ofstream &ofst)
     }
 }
 
-//int get_consonant(tree *t)
-//{
-//    int count = 0;
-//        string vowels = "aeiouy";
-
-//        for(unsigned int i = 0; i < vowels.size(); i++)
-//        {
-//            for(unsigned int j = 0; j < t->name.size(); j++)
-//            {
-//                if(vowels[i] == t->name[j])
-//                {
-//                    count++;
-//                }
-//            }
-//        }
-
-//        return (t->name.size() - count); //возвращаем число (длина - гласные)
-//}
-
-//int get_consonant(bush *b)
-//{
-//    int count = 0;
-//    string vowels = "aeiouy";
-
-//    for(unsigned int i = 0; i < vowels.size(); i++)
-//    {
-//        for(unsigned int j = 0; j < b->name.size(); j++)
-//        {
-//            if(vowels[i] == b->name[j])
-//            {
-//                count++;
-//            }
-//        }
-//    }
-
-//    return (b->name.size() - count); //возвращаем число (длина - гласные)
-//}
-
 int get_consonant(plant *p)
 {
     int count = 0;
