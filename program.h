@@ -5,12 +5,13 @@
 using namespace std;
 namespace type_plants {
 
-    enum type {TREE, BUSH}; //  Тип растения: Дерево или кустарник
+    enum type {TREE, BUSH, FLOWER}; //  Тип растения: Дерево или кустарник
 
     // Значение месяца цветения кустарников
     enum month {JAN, FEB, MAR, APR, MAY, JUNE, JULY, AUG, SEPT, OCT, NOV, DEC};
-
     enum location {TUNDRA, DESERT, STEPPE, TAIGA, MIXED_FOREST, MOUNTAINS};
+    // Значения видов цветов
+    enum kind {DOMESTIC, GARDEN, WILD};
 
     //  Деревья
     struct tree
@@ -28,6 +29,13 @@ namespace type_plants {
         string name;    //  имя
         location location_name; //место произрастания
         month m;        //  Месяц цветения
+    };
+    // Цветы
+    struct flower
+    {
+        type key;
+        string name;
+        kind flower_kind;
     };
 
     //  Структура обощающая все растения
@@ -61,8 +69,11 @@ namespace type_plants {
 
     tree* tree_input(ifstream &ifst);
     bush* bush_input(ifstream &ifst);
+    flower *flower_input(ifstream &ifst);
+
     void tree_output(struct tree *t, ofstream &ofst);
     void bush_output(struct bush *b, ofstream &ofst);
+    void flower_output(struct flower *f, ofstream &ofst);
 
     plant* plant_input(ifstream &ifst);
     bool plant_output(plant *p, ofstream &ofst);
