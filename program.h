@@ -78,5 +78,7 @@ namespace type_plants {
     plant* plant_input(ifstream &ifst);
     bool plant_output(plant *p, ofstream &ofst);
 
+    void output_tree(struct container *listToOutput, ofstream &ofst);
+
 }   // end type_plants namespace
 #endif // PROGRAM_H
