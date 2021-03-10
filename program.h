@@ -35,6 +35,7 @@ namespace type_plants {
     {
         type key;
         string name;
+        location location_name;
         kind flower_kind;
     };
 

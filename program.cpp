@@ -211,8 +211,10 @@ flower *flower_input(ifstream &ifst)
 {
     flower *f = new flower;
     int type = 0;
-    ifst >> f->name >> type;
+    int place = 0;
+    ifst >> f->name >> type >> place;
     f->flower_kind = kind(type);
+    f->location_name = location(place);
     return f;
 }
 
@@ -220,7 +222,8 @@ void flower_output(flower *f, ofstream &ofst)
 {
     cout << f->flower_kind + 1 << endl;
         ofst << "It is flower named: " << f->name
-             << " and it's kind: " << f->flower_kind + 1 << endl;
+             << " and it's kind: " << f->flower_kind + 1
+             << ", and location name: "<< f->location_name + 1 << endl;
 }
 
 
