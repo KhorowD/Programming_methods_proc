@@ -207,7 +207,6 @@ void output_list(struct container *listToOutput, ofstream &ofst)
     }
 }
 
-
 flower *flower_input(ifstream &ifst)
 {
     flower *f = new flower;
@@ -247,6 +246,99 @@ void output_tree(container *listToOutput, ofstream &ofst)
             if (!output_node(listToOutput->head, i,ofst))
             {
                 cout << "Node is broken!" << endl;
+
+            }
+        }
+    }
+}
+
+int get_consonant(tree *t)
+{
+    int count = 0;
+        string vowels = "aeiouy";
+
+        for(unsigned int i = 0; i < vowels.size(); i++)
+        {
+            for(unsigned int j = 0; j < t->name.size(); j++)
+            {
+                if(vowels[i] == t->name[j])
+                {
+                    count++;
+                }
+            }
+        }
+
+        return (t->name.size() - count); //возвращаем число (длина - гласные)
+}
+
+int get_consonant(bush *b)
+{
+    int count = 0;
+        string vowels = "aeiouy";
+
+        for(unsigned int i = 0; i < vowels.size(); i++)
+        {
+            for(unsigned int j = 0; j < b->name.size(); j++)
+            {
+                if(vowels[i] == b->name[j])
+                {
+                    count++;
+                }
+            }
+        }
+
+        return (b->name.size() - count); //возвращаем число (длина - гласные)
+
+}
+
+int get_consonant(plant *p)
+{
+    if (p->key == TREE)
+    {
+        return get_consonant((tree*)p);
+    }
+    if (p->key == BUSH)
+    {
+        return get_consonant((bush*)p);
+    }
+
+    return -1;
+}
+
+bool compare(plant *plt1, plant *plt2)
+{
+    return get_consonant(plt1) < get_consonant(plt2);
+}
+
+node *get_node(node *head, int index)
+{
+    struct node *returnNode = head;
+
+    for(int i = 0; i < index; i++)
+    {
+        returnNode = returnNode->next;
+    }
+    return returnNode;
+}
+
+void swap(node *head, int index_first, int index_second)
+{
+    struct node *temp = new node;
+
+    temp->plt = get_node(head,index_first)->plt;
+    get_node(head,index_first)->plt = get_node(head,index_second)->plt;
+    get_node(head,index_second)->plt = temp->plt;
+}
+
+void sort(int size,struct node *head)
+{
+    for(int i = 0; i < size -1; i++)
+    {
+        for(int j = i + 1; j < size; j++)
+        {
+            if(compare(get_node(head,i)->plt, get_node(head,j)->plt))
+            {
+                swap(head,i,j);
             }
         }
     }
