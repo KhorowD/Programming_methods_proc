@@ -136,14 +136,16 @@ void tree_output(struct tree *t, ofstream &ofst)
 {
     ofst << "It is tree named: " << t->name
          << " and it's age: " << t->age
-         << ", and location name: "<< t->location_name + 1 << endl;
+         << ", and location name: "<< t->location_name + 1
+         << ", Number of consonants: " << get_consonant(t) << endl;
 }
 
 void bush_output(struct bush *b, ofstream &ofst)
 {
     ofst << "It is bush named: " << b->name
          << " and it's month flowering: " << b->m + 1
-         << ", and location name: "<< b->location_name + 1 << endl;
+         << ", and location name: "<< b->location_name + 1
+         << ", Number of consonants: " << get_consonant(b) << endl;
 }
 
 bool plant_output(plant *p, ofstream &ofst)
@@ -223,7 +225,8 @@ void flower_output(flower *f, ofstream &ofst)
     cout << f->flower_kind + 1 << endl;
         ofst << "It is flower named: " << f->name
              << " and it's kind: " << f->flower_kind + 1
-             << ", and location name: "<< f->location_name + 1 << endl;
+             << ", and location name: "<< f->location_name + 1
+             << ", Number of consonants: " << get_consonant(f) << endl;
 }
 
 
@@ -293,6 +296,25 @@ int get_consonant(bush *b)
         return (b->name.size() - count); //возвращаем число (длина - гласные)
 
 }
+int get_consonant(flower *f)
+{
+    int count = 0;
+        string vowels = "aeiouy";
+
+        for(unsigned int i = 0; i < vowels.size(); i++)
+        {
+            for(unsigned int j = 0; j < f->name.size(); j++)
+            {
+                if(vowels[i] == f->name[j])
+                {
+                    count++;
+                }
+            }
+        }
+
+        return (f->name.size() - count); //возвращаем число (длина - гласные)
+
+}
 
 int get_consonant(plant *p)
 {
@@ -304,9 +326,15 @@ int get_consonant(plant *p)
     {
         return get_consonant((bush*)p);
     }
+    if (p->key == FLOWER)
+    {
+        return get_consonant((flower*)p);
+    }
 
     return -1;
 }
+
+
 
 bool compare(plant *plt1, plant *plt2)
 {

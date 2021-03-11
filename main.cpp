@@ -34,10 +34,16 @@ int main(int argc, char const *argv[])
     fill_list(c, ifst);
     cout << "Filled container. " << endl;
 
-    output_tree(c, ofst);
+    output_list(c, ofst);
 
+    ofst << "Sorted" << endl;
     sort(c->size, c->head);
     output_list(c, ofst);
+
+    ofst << "Filtered" << endl;
+
+    output_tree(c, ofst);
+
 
     clear_list(c);
     cout << "Empty container. " << endl;

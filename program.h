@@ -67,6 +67,7 @@ namespace type_plants {
 
     bool add_node(struct container *currentList, ifstream &ifst);
     bool output_node(struct node *headNode, int pos, ofstream &ofst);
+//    void outputCommon(ofstream &ofst);
 
     tree* tree_input(ifstream &ifst);
     bush* bush_input(ifstream &ifst);
@@ -78,6 +79,7 @@ namespace type_plants {
 
     int get_consonant(struct tree *t);
     int get_consonant(struct bush *b);
+    int get_consonant(flower *f);
 
     int get_consonant(plant *p);
     bool compare(plant *plt1, plant *plt2);
