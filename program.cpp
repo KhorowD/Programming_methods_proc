@@ -136,7 +136,7 @@ void tree_output(struct tree *t, ofstream &ofst)
 {
     ofst << "It is tree named: " << t->name
          << " and it's age: " << t->age
-         << ", and location name: "<< t->location_name + 1
+         << ", and location name: "<< t->location_name + 1 << endl
          << ", Number of consonants: " << get_consonant(t) << endl;
 }
 
@@ -144,7 +144,7 @@ void bush_output(struct bush *b, ofstream &ofst)
 {
     ofst << "It is bush named: " << b->name
          << " and it's month flowering: " << b->m + 1
-         << ", and location name: "<< b->location_name + 1
+         << ", and location name: "<< b->location_name + 1 << endl
          << ", Number of consonants: " << get_consonant(b) << endl;
 }
 
@@ -225,7 +225,7 @@ void flower_output(flower *f, ofstream &ofst)
     cout << f->flower_kind + 1 << endl;
         ofst << "It is flower named: " << f->name
              << " and it's kind: " << f->flower_kind + 1
-             << ", and location name: "<< f->location_name + 1
+             << ", and location name: "<< f->location_name + 1 << endl
              << ", Number of consonants: " << get_consonant(f) << endl;
 }
 

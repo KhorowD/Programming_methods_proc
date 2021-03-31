@@ -1,0 +1,2 @@
+It is tree named: topol and it's age: 3000, and location name: 1
+, Number of consonants: 3

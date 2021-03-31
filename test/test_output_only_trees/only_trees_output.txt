@@ -1,0 +1,5 @@
+Only trees.
+It is tree named: topol and it's age: 3000, and location name: 1
+, Number of consonants: 3
+It is tree named: dub and it's age: 50, and location name: 1
+, Number of consonants: 2

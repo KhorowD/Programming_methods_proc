@@ -1,0 +1,4 @@
+1 topol 3000 0
+2 mozevelnik 9 0
+3 rose 0 0
+1 dub 50 0

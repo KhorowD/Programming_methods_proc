@@ -1,0 +1,9 @@
+Container contains 4 elements. 
+It is flower named: rose and it's kind: 1, and location name: 1
+, Number of consonants: 2
+It is tree named: dub and it's age: 50, and location name: 1
+, Number of consonants: 2
+It is tree named: topol and it's age: 3000, and location name: 1
+, Number of consonants: 3
+It is bush named: mozevelnik and it's month flowering: 10, and location name: 1
+, Number of consonants: 6
