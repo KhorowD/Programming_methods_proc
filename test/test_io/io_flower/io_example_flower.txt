@@ -1,0 +1,2 @@
+It is flower named: fialka and it's kind: 3, and location name: 4
+, Number of consonants: 3

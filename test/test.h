@@ -13,7 +13,10 @@ class test_plant : public QObject
     Q_OBJECT
 
 private slots:
-    void test_io();
+    void test_io_tree();
+    void test_io_bush();
+    void test_io_flower();
+    void test_io_plant();
     void test_output_tree();
     void test_get_consonant();
     void test_compare();
