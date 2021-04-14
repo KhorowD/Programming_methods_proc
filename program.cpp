@@ -44,19 +44,96 @@ tree* tree_input(ifstream &ifst)
     tree *t = new tree;
     t->name = "";
     int place = 0;
-    ifst >> t->name >> t->age >> place;
+    string tmp_name = "";
+    long tmp_age = 0;
+
+    ifst >> tmp_name;
+    if (ifst.fail())
+    {
+        cout << "Error! Unexpected end of input!" << endl;
+        exit(1);
+
+    }
+    t->name = tmp_name;
+
+    ifst >> tmp_age;
+    if (ifst.fail())
+    {
+        cout << "Error! Unexpected end of input!" << endl;
+        exit(1);
+    }
+
+    if (tmp_age < 0)
+    {
+        cout << "Error! Age cant be negative!" << endl;
+        exit(1);
+    }
+    t->age = tmp_age;
+
+    ifst >> place;
+    if(ifst.fail())
+    {
+        cout << "Error! Unexpected end of input!" << endl;
+        exit(1);
+    }
+
+    if(place < 0 || place > 5)
+    {
+        cout << "Error! Location number should be value from range <0-5>!" << endl;
+        exit(1);
+    }
     t->location_name = location(place);
+
+//    ifst >> t->name >> t->age >> place;
+//    t->location_name = location(place);
     return t;
 }
 
 bush *bush_input(ifstream &ifst)
 {
     bush *b = new bush;
-    int mnth;
+    int mnth = 0;
     int place = 0;
-    ifst >> b->name >> mnth >> place;
+    string tmp_name = "";
+
+    ifst >> tmp_name;
+    if(ifst.fail())
+    {
+        cout << "Error! Unexpected end of input!" << endl;
+        exit(1);
+    }
+    b->name = tmp_name;
+
+    ifst >> mnth;
+    if(ifst.fail())
+    {
+        cout << "Error! Unexpected end of input!" << endl;
+        exit(1);
+    }
+
+    if(mnth < 0 || mnth > 11)
+    {
+        cout << "Error! Month should be value from range <0-11>" << endl;
+        exit(1);
+    }
     b->m = month(mnth);
+
+    ifst >> place;
+    if(ifst.fail())
+    {
+        cout << "Error! Unexpected end of input!" << endl;
+        exit(1);
+    }
+
+    if(place < 0 || place > 5)
+    {
+        cout << "Error! Location number should be value from range <0-5>!";
+        exit(1);
+    }
     b->location_name = location(place);
+//    ifst >> b->name >> mnth >> place;
+//    b->m = month(mnth);
+//    b->location_name = location(place);
     return b;
 }
 
@@ -111,6 +188,20 @@ plant *plant_input(ifstream &ifst)
     plant *plt_new;
     int k;
     ifst >> k;
+    if(ifst.eof())
+    {
+        return 0;
+    }
+    if(ifst.fail())
+    {
+        cout << "Error! Unexpected end of input!" << endl;
+        exit(1);
+    }
+    if(k < 1 || k > 3)
+    {
+        cout << "Error! Key should be value from range <1-3>!" << endl;
+        exit(1);
+    }
     switch (k)
     {
     case 1:
@@ -214,9 +305,47 @@ flower *flower_input(ifstream &ifst)
     flower *f = new flower;
     int type = 0;
     int place = 0;
-    ifst >> f->name >> type >> place;
+    string tmp_name = "";
+
+    ifst >> tmp_name;
+    if(ifst.fail())
+    {
+        cout << "Error! Unexpected end of input!" << endl;
+        exit(1);
+    }
+    f->name = tmp_name;
+
+    ifst >> type;
+    if(ifst.fail())
+    {
+        cout << "Error! Unexpected end of input!" << endl;
+        exit(1);
+    }
+
+    if(type < 0 || type > 2)
+    {
+        cout << "Error! Type of flower should be value in range <0-2>!" << endl;
+        exit(1);
+    }
     f->flower_kind = kind(type);
+
+    ifst >> place;
+    if(ifst.fail())
+    {
+        cout << "Error! Unexpected end of input!" << endl;
+        exit(1);
+    }
+
+    if(place < 0 || place > 5)
+    {
+        cout << "Error! Location number should be value from range <0-5>!";
+        exit(1);
+    }
     f->location_name = location(place);
+
+//    ifst >> f->name >> type >> place;
+//    f->flower_kind = kind(type);
+//    f->location_name = location(place);
     return f;
 }
 

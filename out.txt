@@ -1,4 +1,3 @@
-Filled container. 
 Container contains 10 elements. 
 It is tree named: topol and it's age: 3000, and location name: 1
 , Number of consonants: 3
@@ -20,7 +19,7 @@ It is bush named: malina and it's month flowering: 7, and location name: 4
 , Number of consonants: 3
 It is flower named: fialka and it's kind: 3, and location name: 4
 , Number of consonants: 3
-sorted container
+Sorted
 Container contains 10 elements. 
 It is bush named: mozevelnik and it's month flowering: 10, and location name: 1
 , Number of consonants: 6
@@ -42,19 +41,13 @@ It is flower named: rose and it's kind: 1, and location name: 1
 , Number of consonants: 2
 It is tree named: ive and it's age: 20, and location name: 4
 , Number of consonants: 1
-filtered
+Filtered
 Only trees.
-
-
-
 It is tree named: topol and it's age: 3000, and location name: 1
 , Number of consonants: 3
 It is tree named: bereza and it's age: 251, and location name: 1
 , Number of consonants: 3
-
-
 It is tree named: dub and it's age: 50, and location name: 1
 , Number of consonants: 2
-
 It is tree named: ive and it's age: 20, and location name: 4
 , Number of consonants: 1
