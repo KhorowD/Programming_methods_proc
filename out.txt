@@ -1,0 +1,94 @@
+Container contains 8 elements. 
+It is tree named: topol and it's age: 3000
+It is bush named: mozevelnik and it's month flowering: 10
+It is tree named: dub and it's age: 50
+It is tree named: bereza and it's age: 251
+It is bush named: smorodina and it's month flowering: 10
+It is bush named: shipovnik and it's month flowering: 10
+It is tree named: ive and it's age: 20
+It is bush named: malina and it's month flowering: 7
+Multimethod
+Tree and bush
+It is tree named: topol and it's age: 3000
+It is bush named: mozevelnik and it's month flowering: 10
+Tree and tree
+It is tree named: topol and it's age: 3000
+It is tree named: dub and it's age: 50
+Tree and tree
+It is tree named: topol and it's age: 3000
+It is tree named: bereza and it's age: 251
+Tree and bush
+It is tree named: topol and it's age: 3000
+It is bush named: smorodina and it's month flowering: 10
+Tree and bush
+It is tree named: topol and it's age: 3000
+It is bush named: shipovnik and it's month flowering: 10
+Tree and tree
+It is tree named: topol and it's age: 3000
+It is tree named: ive and it's age: 20
+Tree and bush
+It is tree named: topol and it's age: 3000
+It is bush named: malina and it's month flowering: 7
+Bush and tree
+It is bush named: mozevelnik and it's month flowering: 10
+It is tree named: dub and it's age: 50
+Bush and tree
+It is bush named: mozevelnik and it's month flowering: 10
+It is tree named: bereza and it's age: 251
+Bush and bush
+It is bush named: mozevelnik and it's month flowering: 10
+It is bush named: smorodina and it's month flowering: 10
+Bush and bush
+It is bush named: mozevelnik and it's month flowering: 10
+It is bush named: shipovnik and it's month flowering: 10
+Bush and tree
+It is bush named: mozevelnik and it's month flowering: 10
+It is tree named: ive and it's age: 20
+Bush and bush
+It is bush named: mozevelnik and it's month flowering: 10
+It is bush named: malina and it's month flowering: 7
+Tree and tree
+It is tree named: dub and it's age: 50
+It is tree named: bereza and it's age: 251
+Tree and bush
+It is tree named: dub and it's age: 50
+It is bush named: smorodina and it's month flowering: 10
+Tree and bush
+It is tree named: dub and it's age: 50
+It is bush named: shipovnik and it's month flowering: 10
+Tree and tree
+It is tree named: dub and it's age: 50
+It is tree named: ive and it's age: 20
+Tree and bush
+It is tree named: dub and it's age: 50
+It is bush named: malina and it's month flowering: 7
+Tree and bush
+It is tree named: bereza and it's age: 251
+It is bush named: smorodina and it's month flowering: 10
+Tree and bush
+It is tree named: bereza and it's age: 251
+It is bush named: shipovnik and it's month flowering: 10
+Tree and tree
+It is tree named: bereza and it's age: 251
+It is tree named: ive and it's age: 20
+Tree and bush
+It is tree named: bereza and it's age: 251
+It is bush named: malina and it's month flowering: 7
+Bush and bush
+It is bush named: smorodina and it's month flowering: 10
+It is bush named: shipovnik and it's month flowering: 10
+Bush and tree
+It is bush named: smorodina and it's month flowering: 10
+It is tree named: ive and it's age: 20
+Bush and bush
+It is bush named: smorodina and it's month flowering: 10
+It is bush named: malina and it's month flowering: 7
+Bush and tree
+It is bush named: shipovnik and it's month flowering: 10
+It is tree named: ive and it's age: 20
+Bush and bush
+It is bush named: shipovnik and it's month flowering: 10
+It is bush named: malina and it's month flowering: 7
+Tree and bush
+It is tree named: ive and it's age: 20
+It is bush named: malina and it's month flowering: 7

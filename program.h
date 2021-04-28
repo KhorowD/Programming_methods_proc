@@ -50,9 +50,11 @@ namespace type_plants {
     void clear_list(struct container *listToClear);
     void fill_list(struct container *listToFill, ifstream &ifst);
     void output_list(struct container *listToOutput, ofstream &ofst);
+    void multimethod(struct container *listToOutput, ofstream &ofst);
 
     bool add_node(struct container *currentList, ifstream &ifst);
     bool output_node(struct node *headNode, int pos, ofstream &ofst);
+    struct node *get_node(struct node *head, int index);
 
     tree* tree_input(ifstream &ifst);
     bush* bush_input(ifstream &ifst);

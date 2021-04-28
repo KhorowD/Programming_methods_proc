@@ -34,6 +34,10 @@ int main(int argc, char const *argv[])
     fill_list(c, ifst);
     cout << "Filled container. " << endl;
     output_list(c, ofst);
+
+    cout << "Multimethod" << endl;
+    multimethod(c,ofst);
+
     clear_list(c);
     cout << "Empty container. " << endl;
     output_list(c, ofst);

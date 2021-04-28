@@ -192,4 +192,66 @@ void output_list(struct container *listToOutput, ofstream &ofst)
     }
 }
 
+node *get_node(node *head, int index)
+{
+    struct node *returnNode = head;
+
+    for(int i = 0; i < index; i++)
+    {
+        returnNode = returnNode->next;
+    }
+    return returnNode;
+}
+
+void multimethod(struct container *listToOutput, ofstream &ofst)
+{
+    struct node* curr_node;
+    ofst << "Multimethod" << endl;
+
+    for(int i = 0; i < listToOutput->size -1; i++)
+    {
+        for(int j = i + 1; j < listToOutput->size; j++)
+        {
+            curr_node = get_node(listToOutput->head, i);
+            switch (curr_node->plt->key) {
+                case TREE:
+                    curr_node = get_node(listToOutput->head, j);
+                        switch (curr_node->plt->key) {
+                            case TREE:
+                                ofst << "Tree and tree" << endl;
+                                break;
+                            case BUSH:
+                                ofst << "Tree and bush" << endl;
+                                break;
+                            default:
+                                ofst << "Unknown key" << endl;
+                                break;
+                            }
+                            break;
+                        case BUSH:
+                            curr_node = get_node(listToOutput->head, j);
+                            switch (curr_node->plt->key) {
+                                case TREE:
+                                    ofst << "Bush and tree" << endl;
+                                    break;
+                                case BUSH:
+                                    ofst << "Bush and bush" << endl;
+                                    break;
+                                default:
+                                    ofst << "Unknown key" << endl;
+                                    break;
+                            }
+                            break;
+
+                        default:
+                            ofst << "Unknown key" << endl;
+                            break;
+                        }
+
+            output_node(listToOutput->head,i,ofst);
+            output_node(listToOutput->head,j,ofst);
+        }
+    }
+}
+
 } // end type_plants namespace
