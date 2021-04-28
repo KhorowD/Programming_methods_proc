@@ -47,6 +47,8 @@ int main(int argc, char const *argv[])
 
     output_tree(c, ofst);
 
+    cout << "Multimethod" << endl;
+    multimethod(c,ofst);
 
     clear_list(c);
     cout << "Empty container. " << endl;

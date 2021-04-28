@@ -376,6 +376,7 @@ void output_tree(container *listToOutput, ofstream &ofst)
         {
             currentNode = currentNode->next;
         }
+
         if(currentNode->plt->key == TREE)
         {
             if (!output_node(listToOutput->head, i,ofst))
@@ -390,58 +391,58 @@ void output_tree(container *listToOutput, ofstream &ofst)
 int get_consonant(tree *t)
 {
     int count = 0;
-        string vowels = "aeiouy";
+    string vowels = "aeiouy";
 
-        for(unsigned int i = 0; i < vowels.size(); i++)
+    for(unsigned int i = 0; i < vowels.size(); i++)
+    {
+        for(unsigned int j = 0; j < t->name.size(); j++)
         {
-            for(unsigned int j = 0; j < t->name.size(); j++)
+            if(vowels[i] == t->name[j])
             {
-                if(vowels[i] == t->name[j])
-                {
-                    count++;
-                }
+                count++;
             }
         }
+    }
 
-        return (t->name.size() - count); //возвращаем число (длина - гласные)
+    return (t->name.size() - count); //возвращаем число (длина - гласные)
 }
 
 int get_consonant(bush *b)
 {
     int count = 0;
-        string vowels = "aeiouy";
+    string vowels = "aeiouy";
 
-        for(unsigned int i = 0; i < vowels.size(); i++)
+    for(unsigned int i = 0; i < vowels.size(); i++)
+    {
+        for(unsigned int j = 0; j < b->name.size(); j++)
         {
-            for(unsigned int j = 0; j < b->name.size(); j++)
+            if(vowels[i] == b->name[j])
             {
-                if(vowels[i] == b->name[j])
-                {
-                    count++;
-                }
+                count++;
             }
         }
+    }
 
-        return (b->name.size() - count); //возвращаем число (длина - гласные)
+    return (b->name.size() - count); //возвращаем число (длина - гласные)
 
 }
 int get_consonant(flower *f)
 {
     int count = 0;
-        string vowels = "aeiouy";
+    string vowels = "aeiouy";
 
-        for(unsigned int i = 0; i < vowels.size(); i++)
+    for(unsigned int i = 0; i < vowels.size(); i++)
+    {
+        for(unsigned int j = 0; j < f->name.size(); j++)
         {
-            for(unsigned int j = 0; j < f->name.size(); j++)
-            {
-                if(vowels[i] == f->name[j])
-                {
-                    count++;
-                }
-            }
-        }
+             if(vowels[i] == f->name[j])
+             {
+                 count++;
+             }
+         }
+     }
 
-        return (f->name.size() - count); //возвращаем число (длина - гласные)
+     return (f->name.size() - count); //возвращаем число (длина - гласные)
 
 }
 
@@ -500,6 +501,79 @@ void sort(int size,struct node *head)
             {
                 swap(head,i,j);
             }
+        }
+    }
+}
+
+void multimethod(struct container *listToOutput, ofstream &ofst)
+{
+    struct node* curr_node;
+    ofst << "Multimethod" << endl;
+
+    for(int i = 0; i < listToOutput->size -1; i++)
+    {
+        for(int j = i + 1; j < listToOutput->size; j++)
+        {
+            curr_node = get_node(listToOutput->head, i);
+                        switch (curr_node->plt->key) {
+                            case TREE:
+                                curr_node = get_node(listToOutput->head, j);
+                                switch (curr_node->plt->key) {
+                                    case TREE:
+                                        ofst << "Tree and tree" << endl;
+                                        break;
+                                    case BUSH:
+                                        ofst << "Tree and bush" << endl;
+                                        break;
+                                    case FLOWER:
+                                        ofst << "Tree and flower" << endl;
+                                        break;
+                                    default:
+                                        ofst << "Unknown key" << endl;
+                                        break;
+                                }
+                                break;
+                            case BUSH:
+                                curr_node = get_node(listToOutput->head, j);
+                                switch (curr_node->plt->key) {
+                                    case TREE:
+                                        ofst << "Bush and tree" << endl;
+                                        break;
+                                    case BUSH:
+                                        ofst << "Bush and bush" << endl;
+                                        break;
+                                    case FLOWER:
+                                        ofst << "Bush and flower" << endl;
+                                        break;
+                                    default:
+                                        ofst << "Unknown key" << endl;
+                                        break;
+                                }
+                                break;
+                            case FLOWER:
+                                curr_node = get_node(listToOutput->head, j);
+                                switch (curr_node->plt->key) {
+                                    case TREE:
+                                        ofst << "Flower and tree" << endl;
+                                        break;
+                                    case BUSH:
+                                        ofst << "Flower and bush" << endl;
+                                        break;
+                                    case FLOWER:
+                                        ofst << "Flower and flower" << endl;
+                                        break;
+                                    default:
+                                        ofst << "Unknown key" << endl;
+                                        break;
+                                }
+                                break;
+                            default:
+                                ofst << "Unknown key" << endl;
+                                break;
+                        }
+
+                        output_node(listToOutput->head,i,ofst);
+                        output_node(listToOutput->head,j,ofst);
         }
     }
 }

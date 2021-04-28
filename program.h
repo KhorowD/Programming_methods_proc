@@ -92,5 +92,7 @@ namespace type_plants {
 
     void output_tree(struct container *listToOutput, ofstream &ofst);
 
+    void multimethod(struct container *listToOutput, ofstream &ofst);
+
 }   // end type_plants namespace
 #endif // PROGRAM_H
