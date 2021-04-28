@@ -3,40 +3,40 @@
 #include "program.h"
 namespace type_plants {
 
-void init_list(container *initList)
+void init_list(container *init_list)
 {
-    initList->size = 0;
-    initList->head = NULL;
+    init_list->size = 0;
+    init_list->head = NULL;
 }
 
-void clear_node(struct node *startNode, int pos)
+void clear_node(struct node *start_node, int pos)
 {
-    node *currNode = startNode;
+    node *curr_node = start_node;
 
     for(int i = 0; i < pos - 1; i++)
     {
-        currNode = currNode->next;
+        curr_node = curr_node->next;
     }
 
-    free(currNode);
+    free(curr_node);
 }
 
-void clear_list(container *listToClear)
+void clear_list(container *list_to_clear)
 {
-    if (listToClear->head == NULL)
+    if (list_to_clear->head == NULL)
     {
         return;
     }
     else
     {
-        for(int i = listToClear->size; i > 0; i--)
+        for(int i = list_to_clear->size; i > 0; i--)
         {
-            clear_node(listToClear->head, i);
+            clear_node(list_to_clear->head, i);
         }
-        listToClear->head = NULL;
+        list_to_clear->head = NULL;
     }
 
-    listToClear->size = 0;
+    list_to_clear->size = 0;
 }
 
 tree* tree_input(ifstream &ifst)
@@ -137,36 +137,36 @@ bush *bush_input(ifstream &ifst)
     return b;
 }
 
-bool add_node(container *currentList, ifstream &ifst)
+bool add_node(container *current_list, ifstream &ifst)
 {
-    struct node *newNode = new node();
-    newNode->plt = plant_input(ifst);
+    struct node *new_node = new node();
+    new_node->plt = plant_input(ifst);
 
-    if(newNode->plt == 0)
+    if(new_node->plt == 0)
     {
-        delete (newNode);
+        delete (new_node);
         return false;
     }
 
-    if(currentList->head == NULL)
+    if(current_list->head == NULL)
     {
-        currentList->head = newNode;
-        newNode->next = newNode;
-        newNode->prev = newNode;
+        current_list->head = new_node;
+        new_node->next = new_node;
+        new_node->prev = new_node;
     }
     else
     {
-        newNode->next = currentList->head;
-        newNode->prev = currentList->head->prev;
-        currentList->head->prev->next = newNode;
-        currentList->head->prev = newNode;
+        new_node->next = current_list->head;
+        new_node->prev = current_list->head->prev;
+        current_list->head->prev->next = new_node;
+        current_list->head->prev = new_node;
     }
     return true;
 }
 
-void fill_list(struct container *listToFill,ifstream &ifst)
+void fill_list(struct container *list_to_fill,ifstream &ifst)
 {
-    if (listToFill->head != NULL)
+    if (list_to_fill->head != NULL)
     {
         cout << "LIST IS NOT EMPTY!" << endl;
         return;
@@ -174,9 +174,9 @@ void fill_list(struct container *listToFill,ifstream &ifst)
 
     while (!ifst.eof())
     {
-        if(add_node(listToFill, ifst))
+        if(add_node(list_to_fill, ifst))
         {
-            (listToFill->size)++;
+            (list_to_fill->size)++;
         }
     }
 
@@ -264,16 +264,16 @@ bool plant_output(plant *p, ofstream &ofst)
     }
 }
 
-bool output_node(struct node *headNode, int pos, ofstream &ofst)
+bool output_node(struct node *head_node, int pos, ofstream &ofst)
 {
-    node *currentNode = headNode;
+    node *current_node = head_node;
 
     for(int i = 0; i < pos; i++)
     {
-        currentNode = currentNode->next;
+        current_node = current_node->next;
     }
 
-    if(!plant_output(currentNode->plt, ofst))
+    if(!plant_output(current_node->plt, ofst))
     {
         cout << "Cannot to output plant!" << endl;
         return false;
@@ -282,18 +282,18 @@ bool output_node(struct node *headNode, int pos, ofstream &ofst)
     return true;
 }
 
-void output_list(struct container *listToOutput, ofstream &ofst)
+void output_list(struct container *list_to_output, ofstream &ofst)
 {
-    if(listToOutput->size == 0)
+    if(list_to_output->size == 0)
     {
         cout << "LIST IS EMPTY!" << endl;
         return;
     }
 
-    ofst << "Container contains " << listToOutput->size << " elements. "<<endl;
-    for(int i = 0; i < listToOutput->size; i++)
+    ofst << "Container contains " << list_to_output->size << " elements. "<<endl;
+    for(int i = 0; i < list_to_output->size; i++)
     {
-        if(!output_node(listToOutput->head, i, ofst))
+        if(!output_node(list_to_output->head, i, ofst))
         {
             cout << "Node is broken!" << endl;
         }
@@ -359,27 +359,27 @@ void flower_output(flower *f, ofstream &ofst)
 }
 
 
-void output_tree(container *listToOutput, ofstream &ofst)
+void output_tree(container *list_to_output, ofstream &ofst)
 {
-    node *currentNode;
-    if(listToOutput->size == 0)
+    node *current_node;
+    if(list_to_output->size == 0)
     {
         cout << "LIST IS EMPTY!" << endl;
         return;
     }
 
     ofst << "Only trees." << endl;
-    for(int i = 0; i < listToOutput->size; i++)
+    for(int i = 0; i < list_to_output->size; i++)
     {
-        currentNode = listToOutput->head;
+        current_node = list_to_output->head;
         for(int j = 0; j < i; j++)
         {
-            currentNode = currentNode->next;
+            current_node = current_node->next;
         }
 
-        if(currentNode->plt->key == TREE)
+        if(current_node->plt->key == TREE)
         {
-            if (!output_node(listToOutput->head, i,ofst))
+            if (!output_node(list_to_output->head, i,ofst))
             {
                 cout << "Node is broken!" << endl;
 
@@ -505,75 +505,76 @@ void sort(int size,struct node *head)
     }
 }
 
-void multimethod(struct container *listToOutput, ofstream &ofst)
+void multimethod(struct container *list_to_output, ofstream &ofst)
 {
     struct node* curr_node;
     ofst << "Multimethod" << endl;
 
-    for(int i = 0; i < listToOutput->size -1; i++)
+    for(int i = 0; i < list_to_output->size -1; i++)
     {
-        for(int j = i + 1; j < listToOutput->size; j++)
+        for(int j = i + 1; j < list_to_output->size; j++)
         {
-            curr_node = get_node(listToOutput->head, i);
-                        switch (curr_node->plt->key) {
-                            case TREE:
-                                curr_node = get_node(listToOutput->head, j);
-                                switch (curr_node->plt->key) {
-                                    case TREE:
-                                        ofst << "Tree and tree" << endl;
-                                        break;
-                                    case BUSH:
-                                        ofst << "Tree and bush" << endl;
-                                        break;
-                                    case FLOWER:
-                                        ofst << "Tree and flower" << endl;
-                                        break;
-                                    default:
-                                        ofst << "Unknown key" << endl;
-                                        break;
-                                }
-                                break;
-                            case BUSH:
-                                curr_node = get_node(listToOutput->head, j);
-                                switch (curr_node->plt->key) {
-                                    case TREE:
-                                        ofst << "Bush and tree" << endl;
-                                        break;
-                                    case BUSH:
-                                        ofst << "Bush and bush" << endl;
-                                        break;
-                                    case FLOWER:
-                                        ofst << "Bush and flower" << endl;
-                                        break;
-                                    default:
-                                        ofst << "Unknown key" << endl;
-                                        break;
-                                }
-                                break;
-                            case FLOWER:
-                                curr_node = get_node(listToOutput->head, j);
-                                switch (curr_node->plt->key) {
-                                    case TREE:
-                                        ofst << "Flower and tree" << endl;
-                                        break;
-                                    case BUSH:
-                                        ofst << "Flower and bush" << endl;
-                                        break;
-                                    case FLOWER:
-                                        ofst << "Flower and flower" << endl;
-                                        break;
-                                    default:
-                                        ofst << "Unknown key" << endl;
-                                        break;
-                                }
-                                break;
-                            default:
-                                ofst << "Unknown key" << endl;
-                                break;
-                        }
+            curr_node = get_node(list_to_output->head, i);
+            switch (curr_node->plt->key)
+            {
+            case TREE:
+                curr_node = get_node(list_to_output->head, j);
+                switch (curr_node->plt->key) {
+                case TREE:
+                    ofst << "Tree and tree" << endl;
+                    break;
+                case BUSH:
+                    ofst << "Tree and bush" << endl;
+                    break;
+                case FLOWER:
+                    ofst << "Tree and flower" << endl;
+                    break;
+                default:
+                    ofst << "Unknown key" << endl;
+                    break;
+                }
+                break;
+            case BUSH:
+                curr_node = get_node(list_to_output->head, j);
+                switch (curr_node->plt->key) {
+                case TREE:
+                    ofst << "Bush and tree" << endl;
+                    break;
+                case BUSH:
+                    ofst << "Bush and bush" << endl;
+                    break;
+                case FLOWER:
+                    ofst << "Bush and flower" << endl;
+                    break;
+                default:
+                    ofst << "Unknown key" << endl;
+                    break;
+                }
+                break;
+            case FLOWER:
+                curr_node = get_node(list_to_output->head, j);
+                switch (curr_node->plt->key) {
+                case TREE:
+                    ofst << "Flower and tree" << endl;
+                    break;
+                case BUSH:
+                    ofst << "Flower and bush" << endl;
+                    break;
+                case FLOWER:
+                    ofst << "Flower and flower" << endl;
+                    break;
+                default:
+                    ofst << "Unknown key" << endl;
+                    break;
+                }
+                break;
+            default:
+                ofst << "Unknown key" << endl;
+                break;
+            }
 
-                        output_node(listToOutput->head,i,ofst);
-                        output_node(listToOutput->head,j,ofst);
+            output_node(list_to_output->head,i,ofst);
+            output_node(list_to_output->head,j,ofst);
         }
     }
 }

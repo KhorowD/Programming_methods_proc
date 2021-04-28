@@ -59,14 +59,14 @@ namespace type_plants {
 
     };
 
-    void init_list(struct container *newList);
-    void clear_node(struct node *startNode, int pos);
-    void clear_list(struct container *listToClear);
-    void fill_list(struct container *listToFill, ifstream &ifst);
-    void output_list(struct container *listToOutput, ofstream &ofst);
+    void init_list(struct container *new_list);
+    void clear_node(struct node *start_node, int pos);
+    void clear_list(struct container *list_to_clear);
+    void fill_list(struct container *list_to_fill, ifstream &ifst);
+    void output_list(struct container *list_to_output, ofstream &ofst);
 
-    bool add_node(struct container *currentList, ifstream &ifst);
-    bool output_node(struct node *headNode, int pos, ofstream &ofst);
+    bool add_node(struct container *current_list, ifstream &ifst);
+    bool output_node(struct node *head_node, int pos, ofstream &ofst);
 //    void outputCommon(ofstream &ofst);
 
     tree* tree_input(ifstream &ifst);
@@ -90,9 +90,9 @@ namespace type_plants {
     plant* plant_input(ifstream &ifst);
     bool plant_output(plant *p, ofstream &ofst);
 
-    void output_tree(struct container *listToOutput, ofstream &ofst);
+    void output_tree(struct container *list_to_output, ofstream &ofst);
 
-    void multimethod(struct container *listToOutput, ofstream &ofst);
+    void multimethod(struct container *list_to_output, ofstream &ofst);
 
 }   // end type_plants namespace
 #endif // PROGRAM_H
